@@ -1,0 +1,55 @@
+    resource_id = "053cea08-09bc-40ec-8f7a-156f0677aff3&q"
+    api_url = f"https://data.gov.il/api/3/action/datastore_search?resource_id={resource_id}"
+
+
+    # Replace with your API endpoint and MySQL details
+    mysql_host = "localhost"
+    mysql_user = "root"
+    mysql_password = "123456"
+    mysql_database = "cars_in_israel"
+    table_name = "cars"
+
+    the horizontal page for "Home"
+
+
+    cursor, connection = sql.createConnection_Cursor()
+    start_time = time.time()  # Measure the start time
+    # Example: Execute a SELECT query with LIMIT
+    query = "SELECT * FROM cars_general;"
+    cursor.execute(query)
+    print(cursor.rowcount)
+    # Fetch all rows
+    result = cursor.fetchall()
+
+    # Extract column names from the cursor's description
+    column_names = [i[0] for i in cursor.description]
+
+    # Create a Pandas DataFrame using the fetched result and column names
+    df = pd.DataFrame(result, columns=column_names)
+    # Print the first few rows of the DataFrame
+    # print("First few rows of the DataFrame:")
+    # print(df.head())
+
+    # Describe the DataFrame (generate summary statistics)
+    # print("\nSummary statistics of the DataFrame:")
+    # print(df.describe(include='all'))
+    # Measure the end time
+    end_time = time.time()
+    # Calculate and print the total time taken
+    time_seconds = (end_time - start_time)
+    # Print the execution time in seconds or minutes
+    if time_seconds < 60:
+        print(f"Execution time: {time_seconds:.5f} seconds")
+    else:
+        time_minutes = time_seconds / 60
+        print(f"Execution time: {time_minutes:.2f} minutes")
+
+    # the cursor and connection
+    cursor.close()
+    connection.close()
+
+
+1_🚗_Cars Dashboard
+2_📜_Car Profile
+3_❓_About
+4_✉️_Contact
