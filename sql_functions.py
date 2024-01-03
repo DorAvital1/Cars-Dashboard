@@ -21,12 +21,12 @@ def create_Connection_Cursor():
     connection = pymysql.connect(
         charset="utf8mb4",
         connect_timeout=timeout,
-        db=os.environ.get(MYSQL_DATABASE),
-        host=os.environ.get("MYSQL_HOST"),
-        password=os.environ.get(MYSQL_PASSWORD),
+        db=st.secrets["MYSQL_DATABASE"],
+        host=st.secrets["MYSQL_HOST"],
+        password=st.secrets["MYSQL_PASSWORD"],
         read_timeout=timeout,
         port=14903,
-        user=os.environ.get(MYSQL_USER),
+        user=st.secrets["MYSQL_USER"],
         write_timeout=timeout,
     )
     return connection.cursor(), connection
