@@ -8,8 +8,10 @@ import streamlit as st
 import plotly.express as px
 import os
 from dotenv import load_dotenv
+
 # Load environment variables from .env file
 load_dotenv()
+
 
 @st.cache_data()
 def multi_choice_maker():
@@ -47,7 +49,8 @@ def home_statistics_data(maker_options):
     return result_df.iloc[0]['Count'], result_df.iloc[0]['makers'], result_df.iloc[0]['average_year'], \
         result_df.iloc[0]['min_year'], result_df.iloc[0]['max_year']
 
-#@st.cache_data()
+
+# @st.cache_data()
 def time_series(maker_options):
     cursor, connection = sql_functions.create_Connection_Cursor()
     if maker_options:
@@ -166,24 +169,25 @@ def ownership(maker_options):
     connection.close()
     return ownership_df
 
+
 st.set_page_config(
     page_title="Cars Dashboard",
     page_icon="🚗",
-    layout="wide"
+    layout="wide",
 )
 st.title("🚗 Israel Cars Dashboard")
-
 
 with st.sidebar:
     maker_options = st.multiselect('Please choose Makers:', multi_choice_maker())
 total_cars, total_makers, average_year, min_year, max_year = home_statistics_data(maker_options)
 # Display summary statistics in a single row
+# becasue total_makers is a string - float value I cast from string to float in order to make it integer
 colmetric1, colmetric2, colmetric3, colmetric4, colmetric5 = st.columns(5)
-colmetric1.metric(f"## Total cars:", f"{round(float(total_cars)):,}")
-colmetric2.metric(f"## Total makers:", round(float(f"{total_makers}")))
-colmetric3.metric(f"## Average year:", round(float(f"{average_year}")))
-colmetric4.metric(f"## Min year:", round(float(f"{min_year}")))
-colmetric5.metric(f"## Max year:", round(float(max_year)))
+colmetric1.metric(f"## Total cars:",   f"{int(float(total_cars)):,}")
+colmetric2.metric(f"## Total makers:", f"{int(float(total_makers))}")
+colmetric3.metric(f"## Average year:", f"{int(float(average_year))}")
+colmetric4.metric(f"## Min year:",     f"{int(float(min_year))}")
+colmetric5.metric(f"## Max year:",     f"{int(float(max_year))}")
 
 col1, col2, col3 = st.columns([0.5, 0.25, 0.25])
 #################################################################################################################
