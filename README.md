@@ -12,5 +12,6 @@ This project taught how:
 - Create dynamic filter with adjust queries and much more...
 You can find more information about the architecture and the development process on the "about" page inside the website
 
-For your convenience, I pushed the project to a live server ("Streamlit" - PaaS) so you can easily access the website from here:
+For your convenience, I pushed the project to a live server ("Streamlit" - PaaS) 
+so you can easily access the website from here:
 https://cars-dashboard.streamlit.app/
