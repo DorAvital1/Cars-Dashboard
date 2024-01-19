@@ -40,13 +40,15 @@ st.write("""
 """)
 
 st.subheader("↪️ Methodology", divider="blue")
+st.image('diagram.png', caption='Architecture for the project')
 st.write("""
-We are dealing with lots of data(more than 3.5 million instances), therefore we should Build our ETL strategy beforehand.\n
-- **Extraction** - To start the data pipeline process, we would extract the data from APIs that return the data, and then we would process it asynchrony in Python in order to run it much faster than getting a request for each call.
-This data will go to MySQL tables for better performance.
-- **Transform** - In Python select data from MySQL tables, edit, alter, and change formats for Dataframe objects.
-- **Load** - query in Python the data with logic for the visualizations.
-In addition, process logic of filters in the dashboard and extraction of data by inputting the car's number in the database and outputting relevant info about it.
+We are dealing with lots of data(more than 3.8 million instances), therefore we should Build our ETL strategy beforehand.\n
+- **Extraction** - To start the data pipeline process, we would extract the data from APIs that return the data, and then we would process it in Python so we could
+organize the data, and than will go to MySQL tables for better performance. (querying & aggregating)
+- **Transform** - select data from MySQL tables, edit, alter and update data & formats for Dataframe objects.
+- **Load** - query the data with logic for the visualizations and for the car report.
+In addition, process logic of filters in the dashboard and extraction of data by 
+inputting the car's number in the database and outputting relevant info about it.
 """)
 
 st.markdown(

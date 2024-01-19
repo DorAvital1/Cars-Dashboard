@@ -1,4 +1,3 @@
-
 import pandas as pd
 import streamlit as st
 import plotly.express as px
@@ -59,13 +58,10 @@ def data_about_car(car_number):
     return car_data
 
 
-def date_differ_today(date1):
+def date_differ_today(date_for_differ):
     # Convert the string to a date object
-    expire_test_date = datetime.strptime(date1, "%Y-%m-%d").date()
-
-    # Get today's date
+    expire_test_date = datetime.strptime(date_for_differ, "%Y-%m-%d").date()
     today_date = date.today()
-
     # Calculate the difference between the two dates
     date_difference = expire_test_date - today_date
     return date_difference.days
