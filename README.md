@@ -21,4 +21,5 @@ This app contains 4 pages in the sidebar:
 
 For your convenience, I pushed the project to a live server ("Streamlit" - PaaS) 
 so you can easily access the website from here👍:
+
 https://cars-dashboard.streamlit.app/
