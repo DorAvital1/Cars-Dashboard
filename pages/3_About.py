@@ -43,12 +43,15 @@ st.subheader("↪️ Methodology", divider="blue")
 st.image('diagram.png', caption='Architecture for the project')
 st.write("""
 We are dealing with lots of data(more than 3.8 million instances), therefore we should Build our ETL strategy beforehand.\n
-- **Extraction** - To start the data pipeline process, we would extract the data from APIs that return the data, and then we would process it in Python so we could
-organize the data, and than will go to MySQL tables for better performance. (querying & aggregating)
-- **Transform** - select data from MySQL tables, edit, alter and update data & formats for Dataframe objects.
-- **Load** - query the data with logic for the visualizations and for the car report.
-In addition, process logic of filters in the dashboard and extraction of data by 
-inputting the car's number in the database and outputting relevant info about it.
+- **Extraction** - To start the data pipeline process, we would extract the data from APIs that return the data, and then process it in Python so we could
+organize the data.
+- **Transform** - fit the data according to the MySQL tables, edit, alter and update data & formats.
+- **Load** - load the data to our database and aggregating materialized tables for best performance.
+
+After we finish with the ETL process it's time to query the data with logic for the visualizations and for the car report.
+With Streamlit module, create & configure the app, query the data for every visualization, process logic of filters in for dashboard figures,
+and align them with containers (st.columns)
+lastly after testing, Deploy Docker & Airflow for tasks monitoring and workflow management.
 """)
 
 st.markdown(
