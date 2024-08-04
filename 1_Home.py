@@ -41,7 +41,7 @@ def home_statistics_data():
         result_df.iloc[0]['min_year'], result_df.iloc[0]['max_year']
 
 
-# @st.cache_data()
+@st.cache_data()
 def time_series():
     cursor, connection = sql_functions.create_Connection_Cursor()
     year_query = "SELECT * FROM aggregated_table_time_series;"
