@@ -36,7 +36,7 @@ def insert_gen_data_sync_v():
         print("Deleting all rows")
         connection.begin() # start transaction
         # Delete existing data from the table for better performance
-        cursor.execute("DELETE FROM table cars_general;")
+        cursor.execute("DELETE FROM cars_general;")
 
         # Initial request to get the total number of records
         response = requests.get(api_url)
@@ -327,7 +327,7 @@ def update_aggregated_tables():
         update_agg_top5cars = """
             INSERT INTO aggregated_table_top5cars (Model, Count)
             SELECT CONCAT(kinuy_mishari, ' ', tozar) AS Model,
-                COUNT(kinuy_mishari) AS Count
+            COUNT(kinuy_mishari) AS Count
             FROM cars_general
             GROUP BY CONCAT(kinuy_mishari, ' ', tozar)
             ORDER BY Count DESC
